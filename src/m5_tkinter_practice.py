@@ -3,8 +3,8 @@ This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Cleo Barmes.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -17,21 +17,35 @@ def main():
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
 
+    root = tkinter.Tk()
+
     # -------------------------------------------------------------------------
     # TODO: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
+
+    main_frame = ttk.Frame(root, padding=30, relief='raised')
+    main_frame.grid()
 
     # -------------------------------------------------------------------------
     # TODO: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
 
+    button = ttk.Button(main_frame, text='Hello')
+    button.grid()
+
     # -------------------------------------------------------------------------
     # TODO: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
+
+    button['command'] = (lambda: greet())
+
+
+def greet():
+    print('Hello')
 
     # -------------------------------------------------------------------------
     # TODO: 6. After reading and understanding the m4e module,
@@ -70,7 +84,7 @@ def main():
     # TODO: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
-
+    root.mainloop()
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
