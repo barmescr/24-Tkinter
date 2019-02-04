@@ -41,11 +41,7 @@ def main():
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
 
-    button['command'] = (lambda: greet())
-
-
-def greet():
-    print('Hello')
+    button['command'] = (lambda: print('Hello'))
 
     # -------------------------------------------------------------------------
     # TODO: 6. After reading and understanding the m4e module,
@@ -55,6 +51,14 @@ def greet():
     #        on the Console if the current string in the Entry box
     #        is the string 'ok', but print "Goodbye" otherwise.
     # -------------------------------------------------------------------------
+
+    entry = ttk.Entry(main_frame)
+    entry.grid()
+
+    entry_submit = ttk.Button(main_frame, text='Submit')
+    entry_submit['command'] = (lambda:
+                               submit(entry))
+    entry_submit.grid()
 
     # -------------------------------------------------------------------------
     # TODO: 7.
@@ -85,6 +89,15 @@ def greet():
     # -------------------------------------------------------------------------
 
     root.mainloop()
+
+
+def submit(entry):
+    if entry.get() == 'ok':
+        print('Hello')
+    else:
+        print('Goodbye')
+
+
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
